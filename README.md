@@ -1,4 +1,4 @@
-# 🦄 GigPulse Parametric
+<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/3314f5ce-7765-406c-be81-6c0579887a02" /># 🦄 GigPulse Parametric
 **Next-Generation InsurTech for India’s Gig Economy**
 
 [![Build in Public Launch](https://img.shields.io/badge/LinkedIn-Official_Launch_Post-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/posts/hari-haran-192b22328_fusionfour-guidewiredevtrails-unicornchase-ugcPost-7438502661471047680-MMfF/)
@@ -74,6 +74,19 @@ Asynchronous Upload: The compressed payload waits in local storage until a stabl
   "status": "APPROVED_FOR_PAYOUT"
 }
 ```
+.💰 4. The Financial Engine: Parametric Revenue Model
+To scale as a "Unicorn" InsurTech, GigPulse utilizes a High-Velocity Micro-Premium Model. By automating the claims process, we eliminate 90% of traditional administrative overhead, allowing us to pass those savings directly to the gig workers.
+
+📊 Actuarial Trigger Matrix
+Our payouts are binary and "Zero-Touch." When the OpenWeatherMap API confirms a breach of these thresholds, the smart contract executes the payout immediately.
+
+📈 The Revenue & Sustainability Model
+The Micro-Subscription: Workers pay a weekly "Protection Fee" of ₹70. This is priced to be less than the cost of a single meal, making it accessible to 100% of the gig workforce.
+
+Dynamic Solvency Pool: 85% of all premiums are locked into a Decentralized Liquidity Pool. Because extreme weather is geographically isolated (e.g., it rains in Chennai but not in Bangalore), the "Float" from unaffected regions provides the capital for the affected regions.
+
+Gemini-Optimized Pricing: We use the Gemini API to analyze historical weather patterns vs. payout frequency, allowing us to adjust the ₹70 premium in real-time to ensure the platform remains profitable even during heavy monsoon months.
+
 👥 Team Fusion Four
 
 Hari Haran K - Team Lead & Product Strategy
