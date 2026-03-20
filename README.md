@@ -71,12 +71,13 @@ If our AI flags a claim as suspicious, or if a genuine hardware/network failure 
   "status": "APPROVED_FOR_PAYOUT"
 }
 ```
-.💰 4. The Financial Engine: Parametric Revenue Model
+## 💰 4. The Financial Engine: Parametric Revenue Model
+
 To scale as a "Unicorn" InsurTech, GigPulse utilizes a High-Velocity Micro-Premium Model. By automating the claims process, we eliminate 90% of traditional administrative overhead, allowing us to pass those savings directly to the gig workers.
 
-📊 Actuarial Trigger Matrix
-Our payouts are binary and "Zero-Touch." When the OpenWeatherMap API confirms a breach of these thresholds, the smart contract executes the payout immediately.
+### 📊 Actuarial Trigger Matrix
 
+Our payouts are binary and "Zero-Touch." When the OpenWeatherMap API confirms a breach of these thresholds, the smart contract executes the payout immediately.
 <img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/3314f5ce-7765-406c-be81-6c0579887a02" />
 
 📈 The Revenue & Sustainability Model
