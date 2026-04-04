@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050b18;
+  --color-surface: #0d1526;
+  --color-primary: #14b8a6; /* Teal */
+  --color-secondary: #10b981; /* Emerald */
+  --color-accent: #3b82f6; /* Blue */
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+}
+
+@layer base {
+  :root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    background-color: #050b18;
+    color: white;
+  }
+
+  body {
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] shadow-2xl transition-all duration-500 overflow-hidden;
+  }
+
+  .glass-card:hover {
+    @apply border-white/20 bg-white/[0.05] shadow-primary/5 translate-y-[-4px];
+  }
+
+  /* Global Page Spacing Utility */
+  .page-container {
+    @apply p-8 lg:p-14 space-y-12 transition-all duration-500;
+  }
+
+  /* Vertical Rhythm for SaaS Consistency */
+  .section-gap {
+    @apply space-y-10 lg:space-y-14;
+  }
+
+  .glass-sidebar {
+    background: rgba(13, 21, 38, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-gradient {
+    background: linear-gradient(135deg, #14b8a6 0%, #10b981 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #14b8a6 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050b18;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
