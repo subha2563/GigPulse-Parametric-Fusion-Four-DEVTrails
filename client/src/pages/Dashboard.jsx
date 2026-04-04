@@ -147,34 +147,34 @@ const Dashboard = () => {
       />
 
       {/* Demo Control Panel Override */}
-      <div className="flex items-center justify-between p-4 glass-card border-primary/20 bg-primary/5">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-4 md:p-5 glass-card border-primary/20 bg-primary/5 gap-4">
+        <div className="flex items-center gap-3 self-start sm:self-center shrink-0">
           <Zap size={20} className="text-primary" />
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-white uppercase tracking-widest leading-none mt-1">Demo Control Panel</span>
+            <span className="text-[11px] sm:text-sm font-bold text-white uppercase tracking-widest leading-none mt-1">Demo Control Panel</span>
             {realWeather && (
               <span className="text-[8px] text-slate-500 font-bold uppercase mt-1">Live: {realWeather.description} ({realWeather.rain}mm)</span>
             )}
           </div>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-row gap-2 sm:gap-3 w-full sm:w-auto">
           <button 
             onClick={triggerRain}
-            className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase transition-all ${currentRain > 50 ? 'bg-primary text-white' : 'bg-white/5 text-slate-400 border border-white/10'}`}
+            className={`flex-1 sm:flex-none justify-center items-center px-2 sm:px-4 py-3 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase transition-all ${currentRain > 50 ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
           >
-            {currentRain > 50 ? 'Reset Weather' : 'Simulate Heavy Rain'}
+            {currentRain > 50 ? 'Reset Weather' : 'Simulate Rain'}
           </button>
           <button 
             onClick={() => setShowOverride(!showOverride)}
-            className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase transition-all ${showOverride ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
+            className={`flex-1 sm:flex-none justify-center items-center px-2 sm:px-4 py-3 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase transition-all ${showOverride ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
           >
-            {showOverride ? 'Override ACTIVE' : 'Manual Override'}
+            {showOverride ? 'Override ON' : 'Manual Override'}
           </button>
         </div>
       </div>
 
       {/* Main Grid: Figma Column Alignment */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] xl:grid-cols-3 gap-6">
         
         {/* COLUMN 1: Weekly Activity & Coverage Status */}
         <div className="space-y-8 flex flex-col h-full">
@@ -230,17 +230,18 @@ const Dashboard = () => {
 
           {/* Coverage Status Card */}
           <div className="glass-card overflow-hidden h-fit">
-            <div className="premium-gradient p-6">
-              <div className="flex items-center justify-between mb-4">
-                 <div className="p-2 bg-white/20 rounded-xl backdrop-blur-md">
+            <div className="premium-gradient p-6 relative overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                 <div className="p-2 bg-white/20 rounded-xl backdrop-blur-md border border-white/20 shadow-inner">
                    <ShieldCheck className="text-white" size={24} />
                  </div>
-                 <div className="bg-white/20 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest backdrop-blur-md border border-white/10">
+                 <div className="bg-white/20 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-md border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                    {currentRain > 50 || showOverride ? 'Active' : 'Awaiting'}
                  </div>
               </div>
-              <h4 className="text-white font-bold text-xl tracking-tight">Weather Protection Plan</h4>
-              <p className="text-white/80 text-[11px] mt-1 font-medium italic opacity-75">Chennai Zone • Parametric Cover</p>
+              <h4 className="relative z-10 text-white font-black text-xl lg:text-2xl tracking-tighter drop-shadow-md">Weather Protection Plan</h4>
+              <p className="relative z-10 text-white/90 text-xs mt-1 font-semibold uppercase tracking-wider">Chennai Zone • Parametric Cover</p>
             </div>
             
             <div className="p-6 space-y-6">
@@ -299,7 +300,7 @@ const Dashboard = () => {
 
             <div className="flex-1 min-h-[180px]">
                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-4">24-Hour Rainfall Trend</div>
-               <ResponsiveContainer width="100%" height="80%">
+               <ResponsiveContainer width="100%" height={180}>
                   <AreaChart data={weatherDataMock}>
                     <defs>
                       <linearGradient id="colorRain" x1="0" y1="0" x2="0" y2="1">
@@ -485,14 +486,14 @@ const Dashboard = () => {
       </div>
 
       {/* SECURITY PANEL - Refactored as full-width vertical architecture */}
-      <div className="glass-card p-10 space-y-12 w-full">
-        <div className="flex items-center gap-6">
-           <div className="p-4 bg-primary/10 rounded-3xl border border-primary/10">
+      <div className="glass-card p-6 md:p-10 space-y-12 w-full">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6">
+           <div className="p-4 bg-primary/10 rounded-3xl border border-primary/10 shrink-0">
              <ShieldCheck size={32} className="text-primary" />
            </div>
            <div>
-             <h3 className="font-black text-white text-2xl tracking-tight uppercase">Security & Anti-Fraud System</h3>
-             <p className="text-slate-500 text-sm font-bold uppercase tracking-widest opacity-80 mt-1">Multi-layer AI validation architecture</p>
+             <h3 className="font-black text-white text-xl md:text-2xl tracking-tight uppercase">Security & Anti-Fraud System</h3>
+             <p className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-widest opacity-80 mt-1">Multi-layer AI validation architecture</p>
            </div>
         </div>
 
@@ -573,14 +574,14 @@ const Dashboard = () => {
 
            {/* Final Engine Result */}
            <div className="pt-8 border-t border-white/5">
-             <div className="bg-primary/5 border-2 border-primary/20 rounded-[3rem] p-10 relative overflow-hidden group">
-               <div className="absolute top-0 right-0 p-4 opacity-5">
+             <div className="bg-primary/5 border-2 border-primary/20 rounded-3xl md:rounded-[3rem] p-6 lg:p-10 relative overflow-hidden group">
+               <div className="absolute top-0 right-0 p-4 opacity-5 hidden sm:block">
                  <ShieldCheck size={120} className="text-primary" />
                </div>
                
-               <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                 <div className="flex items-center gap-6">
-                    <div className="p-5 bg-primary text-white rounded-3xl shadow-xl shadow-primary/20">
+               <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
+                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6">
+                    <div className="p-5 bg-primary text-white rounded-3xl shadow-xl shadow-primary/20 shrink-0">
                       <ShieldCheck size={40} />
                     </div>
                     <div>

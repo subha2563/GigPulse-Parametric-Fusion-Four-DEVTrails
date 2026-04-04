@@ -37,7 +37,11 @@ export const verifyFraudEngine = async (sensorData) => {
  */
 export const processPayout = async (claimData) => {
   try {
-    const response = await api.post('/payment/process-payout', claimData);
+    const response = await api.post('http://localhost:5017/api/payment/initiate-claim', claimData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     return response.data;
   } catch (error) {
     console.error('API Error during payout processing:', error);

@@ -6,63 +6,75 @@ const SuccessModal = ({ isOpen, onClose, amount = "400", trustScore = "92" }) =>
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center p-6">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-background/60 backdrop-blur-md"
+            className="fixed inset-0 bg-background/80 backdrop-blur-md z-0"
           ></motion.div>
           
           <motion.div 
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative glass-card bg-surface/90 border border-emerald-500/30 p-8 md:p-12 max-w-lg w-full flex flex-col items-center text-center shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)]"
+            className="fixed z-0 w-full max-w-2xl aspect-square bg-emerald-500/20 rounded-full blur-[120px] opacity-60 pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          ></motion.div>
+
+          <motion.div 
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            className="relative z-10 glass-card bg-surface/80 backdrop-blur-3xl border border-emerald-500/30 p-6 md:p-10 max-w-lg w-full flex flex-col items-center text-center shadow-[0_0_80px_-15px_rgba(16,185,129,0.4)] my-auto shrink-0"
           >
             {/* Header: Verified Status */}
-            <div className="mb-10 relative">
+            <div className="mb-6 relative mt-4">
               <motion.div 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.2 }}
-                className="w-24 h-24 bg-emerald-500/20 rounded-full flex items-center justify-center border-4 border-emerald-500/20"
+                className="w-24 h-24 bg-gradient-to-br from-emerald-500/30 to-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/40 shadow-[0_0_30px_rgba(16,185,129,0.2)]"
               >
-                <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                  <CheckCircle2 size={36} className="text-white" />
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/40">
+                  <CheckCircle2 size={36} className="text-white drop-shadow-md" />
                 </div>
               </motion.div>
-              <div className="absolute -top-2 -right-2 bg-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-xl shadow-primary/20">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="absolute -top-3 -right-6 bg-gradient-to-r from-emerald-600 to-teal-500 px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest text-white shadow-xl border border-white/20 shadow-emerald-500/30"
+              >
                 Verified by Gemini
-              </div>
+              </motion.div>
             </div>
 
             {/* AI Trust Score Badge */}
-            <div className="flex items-center gap-2 mb-6 px-4 py-2 bg-white/5 border border-white/5 rounded-full">
+            <div className="flex items-center gap-2 mb-4 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-full shadow-inner backdrop-blur-md">
               <ShieldCheck size={14} className="text-emerald-400" />
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                AI Trust Score: <span className="text-emerald-400">{trustScore}%</span>
+              <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em]">
+                AI Trust Score: <span className="text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">{trustScore}%</span>
               </span>
             </div>
 
-            <h2 className="text-3xl font-black text-white tracking-tighter uppercase mb-2">Claim Approved</h2>
-            <p className="text-slate-500 text-[11px] font-bold uppercase tracking-[0.2em] mb-8">Parametric trigger verified instantly</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60 tracking-tighter uppercase mb-1 drop-shadow-xl border-b border-transparent">Claim Approved</h2>
+            <p className="text-slate-400 text-[10px] sm:text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] mb-6 opacity-80">Parametric trigger verified instantly</p>
 
             {/* Payout Details */}
-            <div className="w-full bg-white/5 border border-white/10 rounded-3xl p-6 mb-10 overflow-hidden relative group">
-              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:scale-110 transition-transform">
-                <Wallet size={80} />
+            <div className="w-full bg-gradient-to-b from-emerald-500/[0.05] to-transparent border border-emerald-500/20 shadow-inner rounded-[1.5rem] p-6 mb-8 overflow-hidden relative group backdrop-blur-xl shrink-0">
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 ease-out text-emerald-100">
+                <Wallet size={100} />
               </div>
               
-              <div className="flex flex-col items-center gap-4 relative z-10">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Payout Initiated</span>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-black text-white tracking-tighter">₹{amount}</span>
-                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Processed</span>
+              <div className="flex flex-col items-center gap-3 relative z-10">
+                <span className="text-[10px] font-black text-emerald-500/80 uppercase tracking-[0.2em]">Payout Initiated</span>
+                <div className="flex items-baseline gap-2 pb-2">
+                  <span className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-emerald-100 to-emerald-400 tracking-tighter drop-shadow-md">₹{amount}</span>
+                  <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest px-2 py-1 bg-emerald-500/10 rounded-lg border border-emerald-500/20">Processed</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs font-medium text-slate-400">
-                  <ArrowRight size={14} className="text-primary" />
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-400 bg-black/20 px-4 py-2 rounded-xl mt-2 border border-white/5">
+                  <ArrowRight size={14} className="text-emerald-400" />
                   <span>Transferred to Razorpay Wallet</span>
                 </div>
               </div>
@@ -70,9 +82,13 @@ const SuccessModal = ({ isOpen, onClose, amount = "400", trustScore = "92" }) =>
 
             <button 
               onClick={onClose}
-              className="w-full py-5 premium-gradient rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-xl shadow-emerald-500/20 hover:brightness-110 transition-all active:scale-[0.98]"
+              className="relative w-full py-4 premium-gradient rounded-2xl text-xs font-black uppercase tracking-[0.25em] text-white overflow-hidden group hover:brightness-125 transition-all duration-300 active:scale-[0.98] border border-white/20 shadow-[0_0_40px_rgba(16,185,129,0.3)] shrink-0"
             >
-              Back to Dashboard
+              <span className="relative z-10 flex items-center justify-center gap-3 drop-shadow-md">
+                 <CheckCircle2 size={18} className="text-white" />
+                 Back to Dashboard
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 ease-in-out transition-transform pointer-events-none"></span>
             </button>
           </motion.div>
         </div>

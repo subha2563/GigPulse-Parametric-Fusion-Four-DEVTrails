@@ -106,29 +106,29 @@ const Navbar = ({ title, onNavigate }) => {
   return (
     <>
       {/* ─── Navbar bar ─────────────────────────────────────── */}
-      <div className="flex items-center justify-between p-6 lg:p-8 px-10 border-b border-white/5 sticky top-0 bg-background/60 backdrop-blur-2xl z-40 w-full transition-all duration-300">
-        <div className="flex items-center gap-12 lg:gap-16 flex-1">
-          <h2 className="text-2xl font-black text-white tracking-tighter uppercase whitespace-nowrap min-w-[200px]">
+      <div className="flex items-center justify-between p-4 md:px-8 border-b border-white/5 sticky top-0 bg-background/80 backdrop-blur-3xl z-40 w-full transition-all duration-300 shadow-sm">
+        <div className="flex items-center gap-6 md:gap-10 flex-1">
+          <h2 className="text-xl md:text-2xl font-black text-white tracking-tighter uppercase shrink-0">
             {title || 'Dashboard'}
           </h2>
 
           {/* Search trigger */}
           <button
             onClick={() => { setSearchOpen(true); setNotifOpen(false); }}
-            className="hidden md:flex items-center gap-4 px-6 py-3 bg-white/5 rounded-2xl border border-white/10 w-full max-w-lg hover:bg-white/[0.08] hover:border-primary/30 transition-all text-left group"
+            className="hidden md:flex items-center gap-3 px-4 py-2 bg-white/[0.02] rounded-xl border border-white/10 w-full max-w-sm hover:bg-white/[0.05] hover:border-white/20 transition-all text-left shadow-inner shrink"
           >
-            <Search size={16} className="text-slate-400 group-hover:text-primary transition-colors" />
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-widest flex-1">
-              Search policies, claims or analytics...
+            <Search size={14} className="text-slate-400 group-hover:text-primary transition-colors" />
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex-1">
+              Search...
             </span>
-            <div className="text-[10px] text-slate-600 font-black border border-white/10 px-2 py-1 rounded-md whitespace-nowrap">
-              ⌘ K
+            <div className="text-[10px] text-slate-500 font-bold bg-white/5 border border-white/10 px-1.5 py-0.5 rounded uppercase flex items-center justify-center">
+              ⌘K
             </div>
           </button>
         </div>
 
-        <div className="flex items-center gap-8 pl-10 shrink-0">
-          <div className="hidden sm:flex items-center gap-3 px-5 py-2.5 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-full text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
+        <div className="flex items-center gap-3 md:gap-6 pl-4 shrink-0">
+          <div className="hidden lg:flex items-center gap-3 px-5 py-2.5 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-full text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             Active Coverage
           </div>
@@ -197,15 +197,15 @@ const Navbar = ({ title, onNavigate }) => {
           </div>
 
           {/* User Avatar */}
-          <div className="hidden md:flex items-center gap-4 bg-white/5 p-2.5 pr-6 rounded-2xl border border-white/10 hover:bg-white/[0.08] cursor-pointer transition-all">
-            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/20 p-1">
+          <div className="flex items-center gap-2 sm:gap-4 bg-white/5 p-1.5 sm:p-2.5 pr-3 sm:pr-6 rounded-xl sm:rounded-2xl border border-white/10 hover:bg-white/[0.08] cursor-pointer transition-all shrink-0 whitespace-nowrap">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/20 p-1">
               <div className="w-full h-full rounded-lg premium-gradient flex items-center justify-center">
-                <User size={20} className="text-white" />
+                <User size={16} className="text-white" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-black text-white leading-none tracking-tight">Ravi</span>
-              <span className="text-[10px] text-slate-500 font-black mt-1 uppercase tracking-widest">Delivery Partner</span>
+              <span className="text-xs sm:text-sm font-black text-white leading-none tracking-tight">Ravi</span>
+              <span className="hidden sm:block text-[10px] text-slate-500 font-black mt-1 uppercase tracking-widest">Delivery Partner</span>
             </div>
           </div>
         </div>

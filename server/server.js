@@ -7,6 +7,18 @@ import engineRoutes from './routes/engine.js'; // <-- NEW
 
 dotenv.config();
 
+// ==========================================
+// ENVIRONMENT VARIABLE VALIDATION
+// ==========================================
+const requiredEnvVars = ['MONGO_URI', 'GEMINI_API_KEY', 'OPENWEATHER_API_KEY'];
+const missingVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
+
+if (missingVars.length > 0) {
+    console.error(`🚨 FATAL ERROR: Missing required environment variables: ${missingVars.join(', ')}`);
+    console.error("Exiting application to prevent cold-start crashes.");
+    process.exit(1);
+}
+
 const app = express();
 
 app.use(cors());
