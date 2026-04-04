@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import paymentRoutes from './routes/payments.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import engineRoutes from './routes/engine.js'; // <-- NEW
@@ -10,7 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+app.use('/api/payment', paymentRoutes);
 app.get('/api/health', (req, res) => {
     res.status(200).json({ 
         status: "success", 
