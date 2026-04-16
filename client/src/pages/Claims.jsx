@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, CloudRain, Clock, ArrowRight, Zap, History } from 'lucide-react';
+import { CheckCircle2, CloudRain, Clock, ArrowRight, Zap, History, ShieldCheck } from 'lucide-react';
 
 const Claims = () => {
   const claims = [
@@ -104,13 +104,26 @@ const Claims = () => {
                     </div>
                   </td>
                   <td className="px-10 py-10 text-right">
-                    <span className={`text-2xl font-black ${claim.status === 'Paid' ? 'text-white' : 'text-slate-800'}`}>{claim.amount}</span>
+                    <div className="flex flex-col items-end gap-1">
+                      <span className={`text-2xl font-black ${claim.status === 'Paid' ? 'text-white' : 'text-slate-800'}`}>{claim.amount}</span>
+                      {claim.status === 'Paid' && (
+                        <span className="flex items-center gap-1 text-[8px] font-black uppercase tracking-widest text-emerald-500 bg-emerald-500/5 px-2 py-0.5 rounded-md border border-emerald-500/10">
+                          <CheckCircle2 size={10} /> Verified
+                        </span>
+                      )}
+                    </div>
                   </td>
                   <td className="px-10 py-10">
                     <div className="flex justify-end">
-                      <button className="flex items-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/5 opacity-40 group-hover:opacity-100 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all text-[10px] text-slate-400 group-hover:text-primary font-black uppercase tracking-widest">
-                        Verify <ArrowRight size={14} />
-                      </button>
+                      {claim.status === 'Paid' ? (
+                        <div className="flex items-center gap-2 p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/20 text-[10px] text-emerald-500 font-black uppercase tracking-widest">
+                          <ShieldCheck size={14} /> Audit verified
+                        </div>
+                      ) : (
+                        <button className="flex items-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/5 opacity-40 group-hover:opacity-100 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all text-[10px] text-slate-400 group-hover:text-primary font-black uppercase tracking-widest">
+                          Verify <ArrowRight size={14} />
+                        </button>
+                      )}
                     </div>
                   </td>
                 </tr>

@@ -2,10 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import User from '../models/User.js';
 import Claim from '../models/Claim.js';
+import { checkIdempotency } from '../middleware/idempotency.js';
 
 const router = express.Router();
 
-router.post('/initiate-claim', async (req, res) => {
+router.post('/initiate-claim', checkIdempotency, async (req, res) => {
     console.log("🚀 Payout Request Received!");
     try {
         // 1. Get a valid user (Bypassing Kavi's dummy ID)
@@ -25,22 +26,8 @@ router.post('/initiate-claim', async (req, res) => {
         const userIdStr = worker._id.toString();
         console.log(`🔍 Checking claims for User: ${userIdStr}`);
 
-        // 2. Atomic Idempotency Check (Date-Check for today)
-        const startOfDay = new Date();
-        startOfDay.setHours(0, 0, 0, 0);
-
-        const existingClaim = await mongoose.connection.db.collection('claims').findOne({ 
-            $or: [
-                { userId: userIdStr },
-                { userId: new mongoose.Types.ObjectId(userIdStr) }
-            ],
-            timestamp: { $gte: startOfDay }
-        });
-
-        if (existingClaim) {
-            console.log("🛑 IDEMPOTENCY TRIGGERED: Blocking duplicate.");
-            return res.status(429).json({ error: "Limit reached! Come back later." });
-        }
+        // 2. EXTRACTED TO MIDDLEWARE
+        // The checkIdempotency middleware now handles blocking duplicate transactions within 24 hours.
 
         // 3. Save the Claim
         const newClaim = new Claim({
@@ -50,7 +37,8 @@ router.post('/initiate-claim', async (req, res) => {
             timestamp: new Date(),
             aiTrustScore: 92,
             isFraud: false,
-            reason: 'Verified via Sensor Fusion (Demo Mode)'
+            reason: 'Verified via Sensor Fusion (Demo Mode)',
+            idempotencyKey: req.idempotencyKey
         });
 
         await newClaim.save();

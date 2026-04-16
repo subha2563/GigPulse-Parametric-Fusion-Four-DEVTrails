@@ -497,9 +497,16 @@ const Dashboard = () => {
                             <p className={`text-[10px] font-black uppercase tracking-widest mb-1 ${claimStatus === 'approved' ? 'text-emerald-400' : 'text-red-400'}`}>
                               Claim {claimStatus === 'approved' ? 'Result' : 'Blocked'}
                             </p>
-                            <p className="text-white font-black text-2xl tracking-tighter">
-                              {claimStatus === 'approved' ? '₹400 Initiated' : 'Denied'}
-                            </p>
+                            <div className="flex items-center gap-3">
+                              <p className="text-white font-black text-2xl tracking-tighter">
+                                {claimStatus === 'approved' ? '₹400 Initiated' : 'Denied'}
+                              </p>
+                              {claimStatus === 'approved' && (
+                                <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-[9px] font-black uppercase tracking-widest">
+                                  <CheckCircle2 size={12} /> Verified
+                                </span>
+                              )}
+                            </div>
                           </div>
                           <div className="p-3 bg-background/50 rounded-2xl border border-white/5">
                             {claimStatus === 'approved' ? <TrendingUp size={24} className="text-emerald-400" /> : <XCircle size={24} className="text-red-400" />}
