@@ -36,8 +36,14 @@
   }
 
   .glass-card:hover {
-    @apply border-white/20 translate-y-[-4px];
-    box-shadow: 0 12px 40px rgba(20, 184, 166, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    @apply border-white/20 translate-y-[-2px];
+    box-shadow: 0 20px 40px -10px rgba(72, 187, 120, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Global Selection Branded Focus */
+  ::selection {
+    background-color: rgba(72, 187, 120, 0.3);
+    color: white;
   }
 
   /* Global Page Spacing Utility */
