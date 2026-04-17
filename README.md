@@ -4,7 +4,7 @@
 [![Build in Public Launch](https://img.shields.io/badge/LinkedIn-Official_Launch_Post-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/posts/hari-haran-192b22328_fusionfour-guidewiredevtrails-unicornchase-ugcPost-7438502661471047680-MMfF/)
 > *🏆 Official Entry for the Guidewire DEVTrails 2026 "Unicorn Chase"*
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live_on_Vercel-000000?style=for-the-badge&logo=vercel)](https://gigpulse-frontend.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Demo-Live_on_Vercel-000000?style=for-the-badge&logo=vercel)](https://gig-pulse-parametric-fusion-four-de.vercel.app/)
 [![API Status](https://img.shields.io/badge/API-Live_on_Render-46E3B7?style=for-the-badge&logo=render)](https://gigpulse-parametric-fusion-four-devtrails.onrender.com)
 
 ---
@@ -13,9 +13,12 @@
 **GigPulse is an AI-driven parametric insurance platform designed to protect India’s 15 million gig workers from climate-induced income loss.** By combining real-time weather oracles with a Gemini-powered 'Trust Engine' and bank-grade idempotency, we deliver instant, fraud-proof payouts the moment a storm hits—transforming unpredictable weather into predictable financial security.
 
 ## 📊 Pitch Deck & Demo Video
-> **[Click here to view the GigPulse Pitch Deck (Google Drive) →](PASTE_YOUR_GOOGLE_DRIVE_LINK_HERE)**
-> 
+> **[Click here to view the GigPulse Pitch Deck (Google Drive) →](https://drive.google.com/file/d/1n9kFh5nnzzMrtMKwbLGT5rVrqNi46bE0/view?usp=sharing)**
+
 > **[Click here to watch the "Happy Path" Demo Video (YouTube/Loom) →](PASTE_YOUR_VIDEO_LINK_HERE)**
+
+## 📄 Technical Whitepaper
+> **[Click here to read the System Architecture & Technical Specifications (PDF) →](https://drive.google.com/file/d/1uYbhqCRrvSwlLvf7Hnq9Eu24ctL3lWyC/view?usp=sharing)**
 
 ---
 
@@ -46,23 +49,23 @@ Spoofing GPS is easy; spoofing physics is impossible. GigPulse uses **Google Gem
 | **Environment Scan** | `Camera/Video` | Fallback loop for suspicious claims requiring a 5-second video hash. |
 
 ---
-
 ## 🛠️ Technical Stack
-The GigPulse architecture is built for extreme reliability and low-latency edge processing.
 
-*   **Frontend**: React 19, Tailwind 4, Framer Motion (Deployed on **Vercel Edge**).
-*   **Backend**: Node.js, Express (Deployed on Render).
-*   **Database**: MongoDB Atlas with atomic unique constraints.
-*   **AI**: Google Gemini 1.5 Flash (LLM-based Sensor Fusion).
-*   **DevOps**: Implemented **Graceful Shutdown (SIGTERM)** handling to ensure connection integrity during redeployments.
-
+* **Frontend**: React 19, Tailwind 4, Framer Motion (Deployed on **Vercel Edge**).
+* **Backend**: Node.js, Express (Deployed on Render).
+* **Database**: MongoDB Atlas with atomic unique constraints.
+* **AI**: Google Gemini 1.5 Flash (LLM-based Sensor Fusion).
+* **DevOps**: Implemented **Graceful Shutdown (SIGTERM)** handling to ensure connection integrity during redeployments.
+  
 ---
 
 ## 📸 Interface Preview
-![Transaction Ledger Placeholder](https://via.placeholder.com/1200x600?text=Transaction+Ledger+-+High-End+Financial+Tool+UI)
+<img width="1908" height="905" alt="Screenshot 2026-04-17 190143" src="https://github.com/user-attachments/assets/fc7103fa-e527-438d-b71b-bc731975d4ce" />
+
 *Figure 1: Professional Transaction Ledger with zebra-striping and status badges.*
 
-![Security Hub Placeholder](https://via.placeholder.com/1200x600?text=Security+and+Fraud+Hub+-+AI+Trust+Score)
+<img width="1892" height="910" alt="Screenshot 2026-04-17 190240" src="https://github.com/user-attachments/assets/9dc38573-d33c-47f0-868b-7af0fb83b2fa" />
+
 *Figure 2: AI Trust Score visualization and real-time sensor fusion telemetry.*
 
 ---
@@ -98,10 +101,10 @@ npm run dev
 ---
 
 ## 👥 Team Fusion Four
-*   **Hari Haran K** - Team Lead & Product Strategy
-*   **Subha R** - UI/UX Architect & Full-Stack Developer
-*   **Kavipriya P** - Business Logic & Persona Data Modeling
-*   **Chandrisha P G** - AI Integration & Security Architecture
+* **Hari Haran K** - Team Lead & Product Strategy
+* **Subha R** - UI/UX Architect & Full-Stack Developer
+* **Kavipriya P** - Business Logic & Persona Data Modeling
+* **Chandrisha P G** - AI Integration & Security Architecture
 
 ---
 > Built with ❤️ for India’s Gig Warriors.
