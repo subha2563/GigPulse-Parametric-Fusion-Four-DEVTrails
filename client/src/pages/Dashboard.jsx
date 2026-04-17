@@ -637,10 +637,10 @@ const Dashboard = ({
                     <span className="text-xs text-slate-300 font-medium">{tx.desc}</span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className={`px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-current bg-opacity-10 ${
-                      tx.status === 'Settled' ? 'text-emerald-400 bg-emerald-400' :
-                      tx.status === 'Processing' ? 'text-amber-400 bg-amber-400' :
-                      'text-blue-400 bg-blue-400'
+                    <span className={`px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border ${
+                      tx.status === 'Settled' ? 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' :
+                      tx.status === 'Processing' ? 'text-amber-400 bg-amber-400/10 border-amber-400/20' :
+                      'text-blue-400 bg-blue-400/10 border-blue-400/20'
                     }`}>
                       {tx.status}
                     </span>
