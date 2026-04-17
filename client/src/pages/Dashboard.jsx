@@ -227,13 +227,13 @@ const Dashboard = ({
         <div className="flex flex-row gap-2 sm:gap-3 w-full sm:w-auto">
           <button 
             onClick={triggerRain}
-            className={`flex-1 sm:flex-none justify-center items-center px-2 sm:px-4 py-3 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase transition-all ${currentRain > 50 ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
+            className={`flex-1 sm:flex-none justify-center items-center min-h-[48px] px-2 sm:px-4 py-3 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase transition-all ${currentRain > 50 ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
           >
             {currentRain > 50 ? 'Reset Weather' : 'Simulate Rain'}
           </button>
           <button 
             onClick={() => setShowOverride(!showOverride)}
-            className={`flex-1 sm:flex-none justify-center items-center px-2 sm:px-4 py-3 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase transition-all ${showOverride ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
+            className={`flex-1 sm:flex-none justify-center items-center min-h-[48px] px-2 sm:px-4 py-3 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase transition-all ${showOverride ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/20' : 'bg-white/5 text-slate-400 border border-white/10'}`}
           >
             {showOverride ? 'Override ON' : 'Manual Override'}
           </button>
@@ -245,7 +245,7 @@ const Dashboard = ({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, staggerChildren: 0.1 }}
-        className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] xl:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6"
       >
         
         {/* COLUMN 1: Weekly Activity & Coverage Status */}
@@ -256,7 +256,7 @@ const Dashboard = ({
           className="space-y-8 flex flex-col h-full"
         >
           {/* Profile & Activity Panel */}
-          <div className="glass-card p-6 flex-1 flex flex-col justify-between">
+          <div className="glass-card p-4 sm:p-5 md:p-6 flex-1 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest">Weekly Activity</h3>
@@ -352,7 +352,7 @@ const Dashboard = ({
           className="space-y-8 flex flex-col h-full"
         >
           {/* Live Weather Analytics - Refactored per Figma */}
-          <div className="glass-card p-6 flex-1 flex flex-col">
+          <div className="glass-card p-4 sm:p-5 md:p-6 flex-1 flex flex-col">
             <div className="flex items-center justify-between mb-8">
               <div className="flex flex-col gap-1">
                 <h3 className="font-extrabold text-white text-lg tracking-tight">Live Weather Analytics</h3>
@@ -438,7 +438,7 @@ const Dashboard = ({
           </div>
 
           {/* Zero-Touch Claim Panel */}
-          <div className="glass-card p-6 h-fit">
+          <div className="glass-card p-4 sm:p-5 md:p-6 h-fit">
             <div className="flex items-center gap-3 mb-6">
               <Zap size={18} className="text-amber-500" />
               <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest">Zero-Touch Claim Control</h3>
@@ -488,7 +488,7 @@ const Dashboard = ({
           transition={{ duration: 0.5, delay: 0.3 }}
           className="lg:col-span-1 h-full"
         >
-          <div className="glass-card p-6 h-full flex flex-col">
+          <div className="glass-card p-4 sm:p-5 md:p-6 h-full flex flex-col">
             <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest mb-8">AI Processing Pipeline</h3>
             
             <div className="flex-1 flex flex-col justify-center">
@@ -547,7 +547,7 @@ const Dashboard = ({
                             CLAIM {claimStatus === 'approved' ? 'VERIFIED' : 'DENIED'}
                           </p>
                             <div className="flex items-center gap-3">
-                              <p className="text-white font-black text-2xl tracking-tighter">
+                              <p className="text-white font-black text-xl md:text-2xl tracking-tighter">
                                 {claimStatus === 'approved' ? '₹400 Initiated' : 'Denied'}
                               </p>
                               {claimStatus === 'approved' && (
@@ -596,7 +596,7 @@ const Dashboard = ({
         transition={{ duration: 0.6, delay: 0.4 }}
         className="glass-card overflow-hidden"
       >
-        <div className="p-6 border-b border-white/[0.08] flex items-center justify-between bg-white/[0.02]">
+        <div className="p-4 sm:p-5 border-b border-white/[0.08] flex items-center justify-between bg-white/[0.02]">
            <div className="flex items-center gap-3">
               <History size={18} className="text-primary" />
               <h3 className="font-bold text-white text-sm uppercase tracking-widest">Recent Transactions</h3>
@@ -661,7 +661,7 @@ const Dashboard = ({
       </motion.div>
 
       {/* SECURITY PANEL - Refactored as full-width vertical architecture */}
-      <div className="glass-card p-6 md:p-10 space-y-12 w-full">
+      <div className="glass-card p-4 sm:p-6 md:p-10 pb-16 space-y-8 sm:space-y-12 w-full">
         <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6">
            <div className="p-4 bg-primary/10 rounded-3xl border border-primary/10 shrink-0">
              <ShieldCheck size={32} className="text-primary" />
@@ -749,7 +749,7 @@ const Dashboard = ({
 
            {/* Final Engine Result */}
            <div className="pt-8 border-t border-white/5">
-             <div className="bg-primary/5 border-2 border-primary/20 rounded-3xl md:rounded-[3rem] p-6 lg:p-10 relative overflow-hidden group">
+             <div className="bg-primary/5 border-2 border-primary/20 rounded-3xl md:rounded-[3rem] p-4 sm:p-6 lg:p-10 relative overflow-hidden group">
                <div className="absolute top-0 right-0 p-4 opacity-5 hidden sm:block">
                  <ShieldCheck size={120} className="text-primary" />
                </div>
@@ -760,7 +760,7 @@ const Dashboard = ({
                       <ShieldCheck size={40} />
                     </div>
                     <div>
-                      <h4 className="font-black text-white text-3xl tracking-tighter uppercase">AI Trust Score Engine</h4>
+                      <h4 className="font-black text-white text-2xl md:text-3xl tracking-tighter uppercase">AI Trust Score Engine</h4>
                       <p className="text-primary text-xs font-black uppercase tracking-widest mt-1">Final validation & scoring payload</p>
                     </div>
                  </div>
@@ -768,7 +768,7 @@ const Dashboard = ({
                  <div className="w-full md:w-96 space-y-4">
                     <div className="flex justify-between items-end">
                       <span className="text-[11px] font-black text-white uppercase tracking-widest">Current Trust Score</span>
-                      <span className="text-4xl font-black text-primary tracking-tighter">{claimStatus !== 'idle' ? trustScore : '0'}%</span>
+                      <span className="text-3xl md:text-4xl font-black text-primary tracking-tighter">{claimStatus !== 'idle' ? trustScore : '0'}%</span>
                     </div>
                     <div className="w-full bg-white/5 h-3 rounded-full overflow-hidden flex shadow-inner">
                       <div className={`h-full transition-all duration-1000 shadow-[0_0_15px_rgba(20,184,166,0.5)] ${trustScore < 75 && claimStatus !== 'idle' ? 'bg-red-500 shadow-red-500/50' : 'bg-primary shadow-primary/50'}`} style={{ width: `${claimStatus !== 'idle' ? trustScore : 0}%` }}></div>
