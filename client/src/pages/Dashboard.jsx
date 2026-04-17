@@ -127,6 +127,7 @@ const Dashboard = ({
       // 3. Conditional Payout Processor - Block if score < 75
       if (score < 75) {
         setClaimStatus('rejected_fraud');
+        setShowSuccessModal(true);
         setIsLoading(false);
         setIsVerifying(false);
         return;
@@ -211,6 +212,7 @@ const Dashboard = ({
         onClose={() => setShowSuccessModal(false)} 
         amount="400"
         trustScore={trustScore || "0"}
+        claimStatus={claimStatus}
       />
 
       {/* Demo Control Panel Override */}

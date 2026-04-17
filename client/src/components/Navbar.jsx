@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Bell, Search, User, X, CheckCircle2, AlertTriangle, Zap, FileText, ShieldCheck, Settings, Activity, LayoutDashboard, ChevronRight, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -26,7 +27,7 @@ const typeColor = {
 };
 
 // ─── Component ──────────────────────────────────────────────────────────────
-const Navbar = ({ title, onNavigate }) => {
+const Navbar = ({ title }) => {
   const [searchOpen,  setSearchOpen]  = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [notifOpen,   setNotifOpen]   = useState(false);
@@ -34,6 +35,8 @@ const Navbar = ({ title, onNavigate }) => {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const inputRef   = useRef(null);
   const notifRef   = useRef(null);
+  
+  const navigate = useNavigate();
 
   const unreadCount = notifs.filter(n => !n.read).length;
 
@@ -97,7 +100,7 @@ const Navbar = ({ title, onNavigate }) => {
   }, []);
 
   const handleNavigate = (id) => {
-    onNavigate?.(id);
+    navigate(`/${id}`);
     setSearchOpen(false);
   };
 
