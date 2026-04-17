@@ -43,7 +43,7 @@ graph TD
 > *Detailed teardown of our sensor fusion architecture and idempotency engine.*
 
 ### 🛡️ Security & Business Impact
-> 📖 **[Read the Adversarial Resilience & Case Studies Report (BUSINESS_IMPACT.md) →](./BUSINESS_IMPACT.md)**
+> 📖 **[Read the Adversarial Resilience & Case Studies Report (BUSINESS_IMPACT.md) →](https://drive.google.com/file/d/1JIZ3Tw9RE_nySbMda_meTllo6fDKVUCN/view?usp=sharing)**
 > *Real-world scenarios detailing GigPulse's fraud-prevention solvency and UX strategy.*
 
 ## 🏆 Technical Highlights (Why We Win)
